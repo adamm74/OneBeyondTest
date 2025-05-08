@@ -6,5 +6,7 @@ namespace OneBeyondApi.DataAccess
     {
         public List<BookStock> GetBookStocks();
 
+        void ReturnBook(BookStock bookStock);
+
     }
 }

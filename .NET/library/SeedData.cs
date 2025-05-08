@@ -19,6 +19,10 @@ namespace OneBeyondApi
             {
                 Name = "Margaret Jones"
             };
+            var hgWells = new Author
+            {
+                Name = "H. G. Wells"
+            };
 
             var clayBook = new Book
             {
@@ -42,6 +46,14 @@ namespace OneBeyondApi
                 Format = BookFormat.Paperback,
                 Author = margaretJones,
                 ISBN = "3134324111"
+            };
+
+            var warOfTheWorldsBook = new Book
+            {
+                Name = "War of the Worlds",
+                Format = BookFormat.Paperback,
+                Author = hgWells,
+                ISBN = "9780141441030"
             };
 
             var daveSmith = new Borrower
@@ -76,6 +88,13 @@ namespace OneBeyondApi
                 LoanEndDate = DateTime.Now.Date.AddDays(7)
             };
 
+            var lateBook = new BookStock
+            {
+                Book = warOfTheWorldsBook,
+                OnLoanTo = daveSmith,
+                LoanEndDate = DateTime.Now.Date.AddDays(-3)
+            };
+
             var rustBookStock = new BookStock
             {
                 Book = rustBook,
@@ -88,11 +107,12 @@ namespace OneBeyondApi
                 context.Authors.Add(ernestMonkjack);
                 context.Authors.Add(sarahKennedy);
                 context.Authors.Add(margaretJones);
-
+                context.Authors.Add(hgWells);
 
                 context.Books.Add(clayBook);
                 context.Books.Add(agileBook);
                 context.Books.Add(rustBook);
+                context.Books.Add(warOfTheWorldsBook);
 
                 context.Borrowers.Add(daveSmith);
                 context.Borrowers.Add(lianaJames);
@@ -101,6 +121,7 @@ namespace OneBeyondApi
                 context.Catalogue.Add(bookNotOnLoan);
                 context.Catalogue.Add(bookOnLoanUntilNextWeek);
                 context.Catalogue.Add(rustBookStock);
+                context.Catalogue.Add(lateBook);
 
                 context.SaveChanges();
 

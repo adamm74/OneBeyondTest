@@ -6,5 +6,7 @@ namespace OneBeyondApi.DataAccess
     {
         public List<OnLoanBook> GetBorrowersWithActiveLoans();
 
+        public string ReturnBook(string isbn);
+
     }
 }

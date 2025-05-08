@@ -24,5 +24,12 @@ namespace OneBeyondApi.Controllers
             return _onLoanService.GetBorrowersWithActiveLoans();
         }
 
+        [HttpPost]
+        [Route("ReturnBook")]
+        public string RetunBook(string isbn)
+        {
+            var fine = _onLoanService.ReturnBook(isbn);
+            return fine;
+        }
     }
 }
