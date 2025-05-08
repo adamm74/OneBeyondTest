@@ -68,6 +68,12 @@ namespace OneBeyondApi
                 EmailAddress = "liana@gmail.com"
             };
 
+            var jackSmith = new Borrower
+            {
+                Name = "Jack Smith",
+                EmailAddress = "jack@gmail.com"
+            };
+
             var bookOnLoanUntilToday = new BookStock {
                 Book = clayBook,
                 OnLoanTo = daveSmith,
@@ -102,6 +108,20 @@ namespace OneBeyondApi
                 LoanEndDate = null
             };
 
+            //var warOfTheWorldReservation1 = new BookReservation
+            //{
+            //    Book = warOfTheWorldsBook,
+            //    ReservedBy = lianaJames,
+            //    DateReserved = DateTime.Now.Date.AddDays(-4),
+            //};
+
+            //var warOfTheWorldReservation2 = new BookReservation
+            //{
+            //    Book = warOfTheWorldsBook,
+            //    ReservedBy = jackSmith,
+            //    DateReserved = DateTime.Now.Date.AddDays(-2),
+            //};
+
             using (var context = new LibraryContext())
             {
                 context.Authors.Add(ernestMonkjack);
@@ -122,6 +142,9 @@ namespace OneBeyondApi
                 context.Catalogue.Add(bookOnLoanUntilNextWeek);
                 context.Catalogue.Add(rustBookStock);
                 context.Catalogue.Add(lateBook);
+
+              //  context.BookReservations.Add(warOfTheWorldReservation1);
+               // context.BookReservations.Add(warOfTheWorldReservation2);
 
                 context.SaveChanges();
 

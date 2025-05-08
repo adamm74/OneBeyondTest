@@ -26,7 +26,7 @@ namespace OneBeyondApi.Controllers
 
         [HttpPost]
         [Route("ReturnBook")]
-        public string RetunBook(string isbn)
+        public string ReturnBook(string isbn)
         {
             var fine = _onLoanService.ReturnBook(isbn);
             return fine;

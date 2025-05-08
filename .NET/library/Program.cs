@@ -5,10 +5,12 @@ using OneBeyondApi.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddScoped<IBookReservationService, BookReservationService>();
 builder.Services.AddScoped<IOnLoanService, OnLoanService>();
 
 builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
 builder.Services.AddScoped<IBookRepository, BookRepository>();
+builder.Services.AddScoped<IBookReservationRepository, BookReservationRepository>();
 builder.Services.AddScoped<IBookStockRepository, BookStockRepository>();
 builder.Services.AddScoped<IBorrowerRepository, BorrowerRepository>();
 builder.Services.AddScoped<ICatalogueRepository, CatalogueRepository>();
